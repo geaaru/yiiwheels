@@ -91,7 +91,9 @@
                             if ($element.find('input').is(':disabled'))
                                 $(this).addClass('deactivate');
 
-                            $element.find('span').css(options.font);
+                            if (options.font != undefined && typeof(options.font) == 'object' && options.font instanceof Array && options.font.length == 2) {
+                                $element.find('span').css(options.font[0], options.font[1]);
+                            }
 
 
                             // enabled custom color

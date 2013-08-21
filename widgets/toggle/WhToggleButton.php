@@ -109,6 +109,11 @@ class WhToggleButton extends CInputWidget
     public $tagName = 'div';
 
     /**
+     * @var string set font-weight on span fields
+     */
+    public $fontWeight = null;
+
+    /**
      * Widget's initialization method
      */
     public function init()
@@ -200,6 +205,10 @@ class WhToggleButton extends CInputWidget
             ),
             'style'           => array()
         );
+
+        if (isset($this->fontWeight) && !empty($this->fontWeight)) {
+            $config['font'] = array('font-weight', $this->fontWeight);
+        }
         if (!empty($this->enabledStyle)) {
             $config['style']['enabled'] = $this->enabledStyle;
         }
